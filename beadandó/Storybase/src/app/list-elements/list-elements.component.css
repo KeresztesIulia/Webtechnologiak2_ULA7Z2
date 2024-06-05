@@ -1,0 +1,41 @@
+#storySelect{
+    margin: 10px;
+}
+
+#storySelect select{
+    font-size: 15px;
+}
+
+.elementTile{
+    background: lightblue;
+    border-radius: 10%;
+}
+
+.elementTile div{
+    text-align: center; display:block
+}
+
+.elementButton h3{
+    line-height: 1px;
+}
+
+.elementButton p{
+    text-align: center;
+    line-height: 1px;
+}
+
+.elementDelete button{
+    height: 20px;
+}
+
+.addTile{
+    background: lightgray;
+    border-radius: 10%;
+    font-size: 30pt;
+}
+
+.categoryInfo{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}

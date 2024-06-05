@@ -1,0 +1,32 @@
+
+mat-grid-tile{
+    border: 1px solid black;
+    border-radius: 20%;
+    box-sizing: border-box;
+}
+
+mat-grid-tile:hover{
+    background: lightblue;
+}
+
+.iconDiv{
+    height: 60%;
+    display:block;
+    text-align: center;
+}
+
+.iconDiv img{
+    height: 60%;
+    width: 60%;
+}
+
+
+.titleDiv{
+    display:block;
+    text-align: center;
+}
+
+.tileDiv{
+    margin: 5px;
+    display: block;
+}

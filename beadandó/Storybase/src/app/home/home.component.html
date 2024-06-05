@@ -1,0 +1,14 @@
+<mat-grid-list cols="4" rowHeight="1:1" style="box-sizing: border-box;" gutterSize="10px">
+    @for (category of this.categories; track category){
+        <mat-grid-tile mat-button (click)="onClick(category[2])">
+            <div class=""tileDiv>
+                <div class="iconDiv">
+                    <img src="../../assets/{{category[0]}}.png"/>
+                </div>
+                <div class="titleDiv">
+                    <h1>{{category[1]}}</h1>
+                </div>
+            </div>
+        </mat-grid-tile>
+    }
+</mat-grid-list>

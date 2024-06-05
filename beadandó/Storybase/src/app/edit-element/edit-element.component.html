@@ -1,0 +1,39 @@
+<div [formGroup]="elementForm">
+    <div id="mainDiv">
+        <div id="title" (mouseover)="showNameInputWithDelay(true)" (mouseleave)="showNameInputWithDelay(false)">
+            <h1 *ngIf="!inputShows.name">{{elementForm.get('name')?.value}}</h1>
+            <input *ngIf="inputShows.name" formControlName="name" (change)="contentChange('name')">
+        </div>
+        <div id="storyFull">
+            <div id="storyLabel"><h3>Story:</h3></div>
+            <div id="story" (mouseover)="showStoryInputWithDelay(true)" (mouseleave)="showStoryInputWithDelay(false)">
+                <ng-container *ngIf="!inputShows.story">{{elementForm.get('story')?.value}}</ng-container>
+                <input *ngIf="inputShows.story" formControlName="story" (change)="contentChange('story')">
+            </div>
+        </div>
+        <button mat-flat-button id="saveButton" color="warn" [disabled]="changes==0" (click)="saveButton()">Save changes</button>
+    </div>
+    <ng-container formArrayName="sections">
+        <ng-container *ngFor="let section of sections.controls; let i = index">
+                <div class="sectionDiv" [formGroupName]="i">
+                    <ng-container *ngIf="element.sections[i].userDefined">
+                        <div class="sectionTitle userDefined" id="section{{i}}Title" (mouseover)="showSectionInputWithDelay(true, i)" (mouseleave)="showSectionInputWithDelay(false, i)">
+                            <ng-container *ngIf="!inputShows.sectionTitles[i]"><h3>{{section.get('title')?.value}}</h3></ng-container>
+                            <input *ngIf="inputShows.sectionTitles[i]" placeholder="Custom section" formControlName="title" (change)="contentChange('sections', i)">
+                        </div>
+                        <button mat-raised-button color="warn" class="deleteButton" (click)="deleteSection(i)">Delete</button>
+                    </ng-container>
+                    <ng-container *ngIf="!element.sections[i].userDefined">
+                        <div class="sectionTitle predefined">
+                            <h3>{{section.value['title']}}</h3>
+                        </div>
+                    </ng-container>
+                    <textarea class="sectionContent" id="section{{i}}Content" placeholder="{{element.sections[i].sectionDescription}}" formControlName="content" (change)="contentChange('sections', i)"></textarea>
+                </div>
+            
+        </ng-container>
+    </ng-container>
+    <button mat-button id="newSection" (click)="addSectionButton()">
+        Click to add new section!
+    </button>
+</div>

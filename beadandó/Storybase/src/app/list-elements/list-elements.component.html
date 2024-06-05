@@ -1,0 +1,32 @@
+<div class="categoryInfo">
+    <h1>{{title}}</h1>
+    <h3>{{description}}</h3>
+</div>
+
+<div id="storySelect" [formGroup]="storyFilter">
+    <select id="storyFilter" formControlName="storyFilter" (change)="filterElements(selectValue)">
+        <option value="all">All stories</option>
+        @for(story of stories; track story){
+            <option [value]="story">{{story}}</option>
+        }
+    </select>
+</div>
+
+<div>
+    <mat-grid-list cols="5" rowHeight="2:1" gutterSize="10px">
+        @for (element of elements; track element; let  i = $index){
+            <mat-grid-tile class="elementTile">
+                <div>
+                    <button mat-button class="elementButton" (click)="editElement(i)">
+                        <h3>{{element.name}}</h3>
+                        <p><b>Story:</b> {{element.story}}</p>
+                    </button>
+                    <div class="elementDelete">
+                        <button mat-flat-button color="warn" (click)="deleteElement(i)">delete</button>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        }
+        <mat-grid-tile class="addTile" mat-button (click)="addElement()">+</mat-grid-tile>
+    </mat-grid-list>
+</div>
