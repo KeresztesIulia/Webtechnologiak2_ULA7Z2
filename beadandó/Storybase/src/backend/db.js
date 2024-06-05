@@ -2,8 +2,7 @@ var mongo = require('mongodb').MongoClient,
     ObjectId = require('mongodb').ObjectId,
     express = require('express'),
     cors = require('cors'),
-    bodyParser = require('body-parser'),
-    Element = require('./classes/testClass');
+    bodyParser = require('body-parser');
 
 var url = 'mongodb://127.0.0.1:27017';
 var database;
@@ -14,7 +13,6 @@ const app = express();
 
 mongo.connect(url).then(
   db => {
-    //database = db.db("testDB");
     database = db.db("StorybaseDB");
     userCollection = database.collection("Users");
     elementsCollection = database.collection("Elements");

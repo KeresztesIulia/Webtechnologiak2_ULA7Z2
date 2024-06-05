@@ -1,5 +1,5 @@
 <mat-grid-list cols="4" rowHeight="1:1" style="box-sizing: border-box;" gutterSize="10px">
-    @for (category of this.categories; track category){
+    @for (category of categories; track category){
         <mat-grid-tile mat-button (click)="onClick(category[2])">
             <div class=""tileDiv>
                 <div class="iconDiv">
@@ -12,3 +12,5 @@
         </mat-grid-tile>
     }
 </mat-grid-list>
+
+
